@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+ 
+/* variables principales, fácil de cambiar si queremos otro color */
+:root {
+    --verde:        #1D9E75;
+    --verde-claro:  #E1F5EE;
+    --verde-oscuro: #0F6E56;
+    --fondo:        #f0f4f2;
+    --blanco:       #ffffff;
+    --texto:        #1a1a1a;
+    --texto-suave:  #6b7280;
+    --borde:        #e2e8e5;
+    --peligro:      #D85A30;
+    --peligro-bg:   #FAECE7;
+    --amarillo:     #BA7517;
+    --amarillo-bg:  #FAEEDA;
+    --radio:        10px;
+    --sombra:       0 2px 12px rgba(0,0,0,0.06);
+}
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+ 
+/* contenedor principal */
+.container {
+    max-width: 960px;
+    margin: 48px auto;
+    background: var(--blanco);
+    padding: 36px;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    border: 1px solid var(--borde);
+}
+ 
+.form-container {
+    max-width: 520px;
+}
+ 
+/* cabecera con título y botón de añadir */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--borde);
+}
+ 
+.header h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--texto);
+    letter-spacing: -0.02em;
+}
+ 
+.header h6 {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    font-weight: 400;
+    margin-top: 3px;
+}
+ 
+/* botones */
+.btn {
+    display: inline-block;
+    background-color: var(--verde);
+    color: #fff;
+    padding: 9px 18px;
+    text-decoration: none;
+    border-radius: var(--radio);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-family: 'DM Sans', sans-serif;
+}
+ 
+.btn:hover {
+    background-color: var(--verde-oscuro);
+}
+ 
+.btn:active {
+    transform: scale(0.98);
+}
+ 
+.btn-secondary {
+    background-color: transparent;
+    color: var(--texto-suave);
+    border: 1px solid var(--borde);
+}
+ 
+.btn-secondary:hover {
+    background-color: var(--fondo);
+    color: var(--texto);
+}
+ 
+/* tabla del inventario */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+ 
+th {
+    background-color: var(--fondo);
+    color: var(--texto-suave);
+    padding: 11px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--borde);
+    font-weight: 500;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+ 
+td {
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: middle;
+}
+ 
+/* la última fila sin borde abajo */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+ 
+tbody tr:hover {
+    background-color: #f9fbfa;
+}
+ 
+/* columna del ID, fuente monoespaciada porque queda mejor */
+td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+}
+ 
+/* acciones de editar/eliminar */
+.actions a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+    margin-right: 12px;
+}
+ 
+.link-edit {
+    color: var(--verde);
+}
+ 
+.link-edit:hover {
+    color: var(--verde-oscuro);
+}
+ 
+.link-delete {
+    color: var(--peligro);
+}
+ 
+.link-delete:hover {
+    color: #993C1D;
+}
+ 
+/* formularios */
+.form-group {
+    margin-bottom: 18px;
+}
+ 
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--texto);
+    font-size: 0.88rem;
+}
+ 
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--texto);
+    background: var(--blanco);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+ 
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--verde);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.12);
+}
+ 
+.form-actions {
+    margin-top: 28px;
+    display: flex;
+    gap: 10px;
+}
+ 
+/* botones de stock +/- */
+.cantidad-celda {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+ 
+.numero {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+ 
+.btn-stock {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background 0.15s, transform 0.1s;
+}
+ 
+.btn-stock:active {
+    transform: scale(0.92);
+}
+ 
+.btn-restar {
+    background-color: var(--amarillo-bg);
+    color: var(--amarillo);
+}
+ 
+.btn-restar:hover {
+    background-color: #FAC775;
+}
+ 
+.btn-sumar {
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+}
+ 
+.btn-sumar:hover {
+    background-color: #9FE1CB;
+}
+ 
